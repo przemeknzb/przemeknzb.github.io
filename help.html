@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>NZB Leech Help</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="css/help.css">
+    </head>
+    <body>
+        <!-- created using Brackets, live preview is great. -->
+        <h1>Nzb Leech</h1>
+        <p>Nzb Leech allows you to download files from usenet while you're on the go.  Read on to get the most out of Nzb Leech!</p>
+        
+        <h2>Downloading NZB files</h2>
+        <p>
+            Other than using Nzb leech to download nzb files, you can use a browser as well.  Note that <strong>some browsers fail to properly download nzb files</strong>, so Chrome is recommended.
+        </p>
+        <p>
+            To switch between Wi-Fi and Data, pause your download, wait for your connections to disconnect, turn on/off Wi-Fi, then resume your download. Sometimes you won't be able to connect right away as the server may prevent you from connecting via multiple ips (Carrier ip address and your home ISP ip address)
+        </p>
+        
+        <h2>Configuration</h2>
+            
+        <p>
+           <strong>Servers </strong>You can add multiple servers.  If you just have one server set it as the Primary server.  A common setup is to have a Primary and backup server.  The backup server is only used if a file cannot be found
+            on the first server (this is used to minimize missing file parts).  
+        </p>
+        
+        <p>
+            <strong>Advanced - Article Cache </strong> This setting is useful to speed up downloading by minimize disk reads/writes by storing incomplete files in memory.  Android is strict, and doesn't let one app take all the device's memory, its usually around 256MB for devices with 3GB of memory.  So this 256MB must be shared between the article cache and general memory needed for Nzb leech to run. Don't allocate more than half for your device.  So if your device allows 256MB per app (I display this device specific value in the Setting), set article cache to 128MB.  If you set it too high, Nzb leech will run out of memory and crash.</p>
+        <p><strong>  The article cache is exhausted more likely on nzbs that have large files, so you may not run out of memory on nzbs with smaller size files.</strong>.  Keep that in mind when you are experiencing issues!
+        </p><p>For example, if you are downloading files 10MB each, the article cache never fills up because as each file is downloaded, the cache for that file is removed. But if you download a file that is very large, Nzb leech will try to store the entire file in memory and crash.</p>
+        
+        <!--
+            GET STARTED WITH YOUR OWN FILES
+        -->
+        
+        <a name="customsite"></a><h2>Adding Custom Sites</h2>
+        <p>There are a few sites that are not editable but the rest can be edited by clicking the Gear icon next to the site.  If the Gear icon is missing, the site cannot be edited.</p>
+        <a href="screenshots/customsite.png">
+            <img alt="A screenshot of Adding Custom Site" src="screenshots/customsite.png" />
+        </a>
+        <h3>NewzNab Site</h3>
+        <p>Make sure NewzNab radio button is selected and enter the url and API Key. Take a look at the preconfigured Newznab sites in Nzb leech to get an idea of how to create the url.</p>
+    <h3>RSS Site</h3>
+        <p>NewzNab sites are more compatible, but some rss sites work ok too. To make a RSS site searchable, use <code>%s</code> in your address as the value for the query parameter. e.g.,</p><p><code>http://www.nzbindex.nl/rss/?q=%s&sort=agedesc</code></p>
+        
+        
+    </body>
+</html>
+<!--
+
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[     CODE THE WEB     ]:::::]
+    [:::::[  http://brackets.io  ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+
+-->
