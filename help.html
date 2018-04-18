@@ -33,6 +33,21 @@
         <p><strong>  The article cache is exhausted more likely on nzbs that have large files, so you may not run out of memory on nzbs with smaller size files.</strong>.  Keep that in mind when you are experiencing issues!
         </p><p>For example, if you are downloading files 10MB each, the article cache never fills up because as each file is downloaded, the cache for that file is removed. But if you download a file that is very large, Nzb leech will try to store the entire file in memory and crash.</p>
         
+       <a name="sdcard"></a><h2>Download to SD Card</h2>
+        <p>Its possible to download to your external SD Card but you have to do some work to figure out the specific directory as Android restricts writing to the sd card (for most devices).  The only exception is an App can write to its own designated folder, so this is the folder we need to determine.  You can use one of the two apps to determine the path. There are two things you should know about using this app specific path: <ul><li>The folder (and so your downloads) are deleted if you uninstall the app</li><li>Android media scanner does not work with this app specific folder so you won't see your downloaded files showing in other apps</li></ul></p>
+        <p><strong>A1 SD Bench</strong> This is the easier approach, at the time of this writing, you just install the app and press and hold on the SD Card to bring up a menu, select "Show media path". The path in the screenshot shows the A1 SD Bench path, <u>you need to replace com.a1dev.sdbench with sic.nzb.app</u>, so the complete path in this case would be <code>/storage/9F85-C5B5/Android/data/sic.nzb.app/files</code>.  Now you have the complete path, so go ahead and use it in Nzb Leech.</p>
+        <p><u>Tip</u>: Browse this path in Nzb Leech File tab to see if you recognize any files to confirm its your sd card.</p>
+        <a href="screenshots/a1sdbench.png">
+            <img alt="SD Card path" src="screenshots/a1sdbench.png" />
+        </a>
+        <p><strong>Termux</strong> Another way to determine the directory is by installing Termux.  Open the app and type <code>df</code> to list all the paths on your device.  The sd card path will usually start with "/mnt" or "/storage".  In the screenshot below the path is <code>/storage/39463835-2d43-3542-3500-020000000000</code>.  I append the Nzb Leech specific directory and I get <code>/storage/39463835-2d43-3542-3500-020000000000/Android/data/sic.nzb.app/files</code>. Now you have the complete path, so go ahead and use it in Nzb Leech.
+        </p>
+        
+        <a href="screenshots/termux.png">
+            <img alt="SD Card path" src="screenshots/termux.png" />
+        </a>
+        First media scanner will not discover files stored there, and secondly, this folder and so all your downloads are deleted when you remove Nzb Leech
+        
        <a name="customsite"></a><h2>Adding Custom Sites</h2>
         <p>There are a few sites that are not editable but the rest can be edited by clicking the Gear icon next to the site.  If the Gear icon is missing, the site cannot be edited.</p>
         <a href="screenshots/customsite.png">
