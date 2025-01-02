@@ -1,106 +1,91 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>NZB Leech Help</title>
-        <meta name="description" content="Help page for Nzb Leech - usenet downloader for Android">
-        <link rel="stylesheet" href="css/help.css">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <style>
-          /* // [START mqreading] */
-          @media (min-width: 575px) {
-            article {
-              width: 550px;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-           /* // [END mqreading] */
-        </style>        
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76217439-2"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+	<head>
+		<title>Nzb Leech Help</title>
+		<meta charset="utf-8" />
+		 <!-- Global site tag (gtag.js) - Google Analytics -->        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76217439-2"></script>       <script>         window.dataLayer = window.dataLayer || [];          function gtag(){dataLayer.push(arguments);}          gtag('js', new Date());          gtag('config', 'UA-76217439-2');        </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-          gtag('config', 'UA-76217439-2');
-        </script>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-    </head>
-    <body>
-        <!-- created using Brackets, live preview is great. -->
-        <h1>Nzb Leech</h1>
-        <p>Nzb Leech allows you to download files from usenet while you're on the go.  Read on to get the most out of Nzb Leech!</p>
-        
-        <h2>Downloading NZB files</h2>
-        <p>
-            Other than using Nzb leech to download nzb files, you can use a browser as well.  Note that <strong>some browsers fail to properly download nzb files</strong>, so Chrome is recommended.
-        </p>
-        <p>
-            To switch between Wi-Fi and Data, pause your download, wait for your connections to disconnect, turn on/off Wi-Fi, then resume your download. Sometimes you won't be able to connect right away as the server may prevent you from connecting via multiple ips (Carrier ip address and your home ISP ip address)
-        </p>
-        <p>
-            <strong>Password protected nzbs</strong> are supported.  Add password to nzb name: <strong>"my nzb {{mypassword}}.nzb"</strong> so that nzb leech automatically extracts using the password instead of manually having to select the rar file in file folder and typing in password
-        </p>
-        
-        <h2>Configuration</h2>
-            
-        <p>
-           <strong>Servers </strong>You can add multiple servers.  If you just have one server set it as the Primary server.  A common setup is to have a Primary and backup server.  The backup server is only used if a file cannot be found
-            on the first server (this is used to minimize missing file parts).  
-        </p>
-        
-        <p>
-            <strong>Advanced - Article Cache </strong> This setting is useful to speed up downloading by minimize disk reads/writes by storing incomplete files in memory.  Android is strict, and doesn't let one app take all the device's memory, its usually around 256MB for devices with 3GB of memory.  So this 256MB must be shared between the article cache and general memory needed for Nzb leech to run. Don't allocate more than half for your device.  So if your device allows 256MB per app (I display this device specific value in the Setting), set article cache to 128MB.  If you set it too high, Nzb leech will run out of memory and crash.</p>
-        <p><strong>  The article cache is exhausted more likely on nzbs that have large files, so you may not run out of memory on nzbs with smaller size files.</strong>.  Keep that in mind when you are experiencing issues!
-        </p><p>For example, if you are downloading files 10MB each, the article cache never fills up because as each file is downloaded, the cache for that file is removed. But if you download a file that is very large, Nzb leech will try to store the entire file in memory and crash.</p>
-        
-       <a name="sdcard"></a><h2>Download to SD Card</h2>
-        <p>Its possible to download to your external SD Card but you have to do some work to figure out the specific directory as Android restricts writing to the sd card (for most devices).  The only exception is an App can write to its own designated folder, so this is the folder we need to determine.  You can use one of the two apps to determine the path. There are two things you should know about using this app specific path: <ul><li>The folder (and so your downloads) are deleted if you uninstall the app</li><li>Android media scanner does not work with this app specific folder so you won't see your downloaded files showing in other apps</li></ul></p>
-        <p><strong>A1 SD Bench</strong> This is the easier approach, at the time of this writing, you just install the app and press and hold on the SD Card to bring up a menu, select "Show media path". The path in the screenshot shows the A1 SD Bench path, <u>you need to replace com.a1dev.sdbench with sic.nzb.app</u>, so the complete path in this case would be <code>/storage/9F85-C5B5/Android/data/sic.nzb.app/files</code>.  Now you have the complete path, so go ahead and use it in Nzb Leech.</p>
-        <p><u>Tip</u>: Browse this path in Nzb Leech File tab to see if you recognize any files to confirm its your sd card.</p>
-        <a href="screenshots/a1sdbench.png">
-            <img alt="SD Card path" src="screenshots/a1sdbench.png" />
-        </a>
-        <p><strong>Termux</strong> Another way to determine the directory is by installing Termux.  Open the app and type <code>df</code> to list all the paths on your device.  The sd card path will usually start with "/mnt" or "/storage".  In the screenshot below the path is <code>/storage/39463835-2d43-3542-3500-020000000000</code>.  I append the Nzb Leech specific directory and I get <code>/storage/39463835-2d43-3542-3500-
-            020000000000/Android/
-            data/sic.nzb.app/files</code>. Now you have the complete path, so go ahead and use it in Nzb Leech.
-        </p>
-        
-        <a href="screenshots/termux.png">
-            <img alt="SD Card path" src="screenshots/termux.png" />
-        </a>        
-       <a name="customsite"></a><h2>Adding Custom Sites</h2>
-        <p>There are a few sites that are not editable but the rest can be edited by clicking the Gear icon next to the site.  If the Gear icon is missing, the site cannot be edited.</p>
-        <a href="screenshots/customsite.png">
-            <img alt="A screenshot of Adding Custom Site" src="screenshots/customsite.png" />
-        </a>
-        <h3>NewzNab Site</h3>
-        <p>Make sure NewzNab radio button is selected and enter the API url and API Key. The API address depends on the site, but its common to have "api" appended like so: https://example.com/api Check with the site if you have trouble. <strong>429 Too Many Requests</strong> or similar message means your site is restricting your api usage (either limit amount of requests per day or you must be site VIP member to use).</p>
-    <h3>RSS Site</h3>
-        <p>NewzNab sites are more compatible, but some rss sites work ok too. To make a RSS site searchable, use <code>%s</code> in your address as the value for the query parameter. e.g.,</p><p><code>http://www.nzbindex.nl/rss/?q=%s&sort=agedesc</code><p>NzbKing can be added as well using their rss feature, the url will look something like this <p><code>https://www.nzbking.com/rss/?q=%s&key=YOUR_API_KEY</code></p></p></p>
-        <a name="troubleshoot"></a>
-<h2>Troubleshooting</h2>
-<h3>My purchase disappeared</h3>
-<p>Nzb leech says trial expired but I already made a donation.  This is an <a href="https://github.com/googlesamples/android-play-billing/issues/2">ongoing issue</a>, follow the steps below to fix:</p>
-<strong>Fix A (only works if the account used to make the purchase is the "primary" account on the device):</strong>
-<ul>
-   <li>Clear the data of the Google Play Store app.</li>
-   <li>Open the Google Play Store and accept the terms.</li>
-   <li>Open the app and query for purchases. The previous purchase is reported.</li>
-</ul>
-<strong>Fix B:</strong>
-<ul>
-   <li>Uninstall the app.</li>
-   <li>Open Google Play and switch to the account used to make the purchase.</li>
-   <li>Download the app you uninstalled in step 1.</li>
-   <li>Open the app and query for purchases. The previous purchase is reported.
-   </li>
-</ul>
-        
-    </body>
+				<!-- Header -->
+					<header id="header">
+						<h1>Nzb Leech</h1>
+						<p>Help</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<!-- <span class="image main"><img src="images/pic04.jpg" alt="" /></span> -->
+								<!-- <h2>Magna feugiat lorem</h2> -->
+								<h2>Downloading NZB files</h2>
+								<p><span class="image left"><img src="images/screenshot01.jpg" alt="" /></span><strong>Password protected</strong> nzbs are supported. Add password to nzb name:<strong>"my nzb {{mypassword}}.nzb"</strong> so that nzb leech automatically extracts using the password instead of manually having to select the rar file in file folder and typing in password</p>						
+								<p>To switch between Wi-Fi and Data, pause your download, wait for your connections to disconnect, turn on/off Wi-Fi, then resume your download. Sometimes you won't be able to connect right away as the server may prevent you from connecting via multiple ips (Carrier ip address and your home ISP ip address)</p>
+								<a name="customsite"></a><h2>Adding Custom Sites</h2>
+								<p>There are a few sites that are not editable but the rest can be edited by clicking the Gear icon next to the site. If the Gear icon is missing, the site cannot be edited.</p>
+								<h3>NewzNab Site</h3>
+								<p>Make sure NewzNab button is selected and enter the API url and API Key. The API address depends on the site, but its common to have "api" appended: <code>https://example.com/api</code> Check with the site if you have trouble. 429 Too Many Requests or similar message means your site is restricting your api usage (either limit amount of requests per day or you must be site VIP member to use).</p>
+								<h3>RSS Site</h3>
+								<p>NewzNab sites are more compatible, but some rss sites work ok too. To make a RSS site searchable, use <code>%s</code> in your address as the value for the query parameter <code>http://www.nzbindex.nl/rss/?q=%s&sort=agedesc</code></p>
+								<p>NzbKing can be added as well using their rss feature, the url will look something like this</p><p><code>https://www.nzbking.com/rss/?q=%s&key=YOUR_API_KEY</code></p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<!-- <section>
+							<h2>Aliquam sed mauris</h2>
+							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul> -->
+						</section>
+						<section>
+							<h2>Contact</h2>
+							<dl class="alt">
+								<!-- <dt>Address</dt>
+								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+								<dt>Phone</dt>
+								<dd>(000) 000-0000 x 0000</dd> -->
+								<dt>Email</dt>
+								<dd><a href="#">przemeknzb@gmail.com</a></dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="https://x.com/nzbleech" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+								<!-- <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li> -->
+							</ul>
+						</section>
+						<!-- <p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p> -->
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
